@@ -1,0 +1,523 @@
+#
+    <link rel="apple-touch-icon" sizes="57x57" href="{%static 'app/favicon icon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{%static 'app/favicon icon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{%static 'app/favicon icon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{%static 'app/favicon icon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{%static 'app/favicon icon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'app/favicon icon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{%static 'app/favicon icon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{%static 'app/favicon icon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'app/favicon icon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{%static 'app/favicon icon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'app/favicon icon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{%static 'app/favicon icon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'app/favicon icon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'app/favicon icon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+#
+/*
+        if (width > height) {
+            ScreenSizeFittingElement.style.width = ScreenSizeFittingWindowHeight + 'px';
+            ScreenSizeFittingElement.style.height = ScreenSizeFittingWindowHeight + 'px';
+        }
+        else {
+            ScreenSizeFittingElement.style.width = ScreenSizeFittingWindowWidth + 'px';
+            ScreenSizeFittingElement.style.height = ScreenSizeFittingWindowWidth + 'px';
+        }
+        */
+
+        ScreenSizeFittingWindowWidth = window.innerWidth;
+        ScreenSizeFittingWindowHeight = window.innerHeight;
+#
+<img src="{% static 'app/images/sky.jpg' %}" id="ErrorAnimationImage" class="rough"/>
+
+    ErrorAnimationImageSrc = document.getElementById('ErrorAnimationImage').src
+    document.getElementsByTagName('body')[0].style.background = "url('" + ErrorAnimationImageSrc + "')";
+
+#
+for i in range(0,75):
+    print(str(i) + '%   {left:' + str(i) + '%;}');
+
+#
+<div class="bottom-left">Bottom Left</div>
+                    <div class="top-left">Top Left</div>
+                    <div class="top-right">Top Right</div>
+                    <div class="bottom-right">Bottom Right</div>
+                    <div class="centered">Centered</div>
+                </div>
+
+#
+<div class="animated slower bounce infinite ">
+            <div class="animated slower moveOut infinite delay-3s">
+                <img src="{% static 'app/images/bird1.gif' %}" alt="bird1" style="width:20%; height:10%;"/>
+                <br />
+                <div style="width:20%; height:10%;" class="imageContainer">
+                    <img src="{% static 'app/images/board2.png' %}" alt="board2" style="width:100%;">
+                    <div class="centered">
+                        <div class="animated rubberBand zoom infinite" style="font-size:20px">
+                            <i> 4 </i>
+                            <i> 0 </i>
+                            <i> 4 </i>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+#
+
+    .animated.slower4 {
+        -webkit-animation-duration: 4s;
+        animation-duration: 4s;
+        -webkit-animation-duration: calc(var(--animate-duration)*4);
+        animation-duration: calc(var(--animate-duration)*4)
+    }
+    .animated.slower5 {
+        -webkit-animation-duration: 5s;
+        animation-duration: 5s;
+        -webkit-animation-duration: calc(var(--animate-duration)*5);
+        animation-duration: calc(var(--animate-duration)*5)
+    }
+    .animated.slower6 {
+        -webkit-animation-duration: 6s;
+        animation-duration: 6s;
+        -webkit-animation-duration: calc(var(--animate-duration)*6);
+        animation-duration: calc(var(--animate-duration)*6)
+    }
+    .animated.slower7 {
+        -webkit-animation-duration: 7s;
+        animation-duration: 7s;
+        -webkit-animation-duration: calc(var(--animate-duration)*7);
+        animation-duration: calc(var(--animate-duration)*7)
+    }
+    .animated.slower8 {
+        -webkit-animation-duration: 8s;
+        animation-duration: 8s;
+        -webkit-animation-duration: calc(var(--animate-duration)*8);
+        animation-duration: calc(var(--animate-duration)*8)
+    }
+
+    #
+    @keyframes moveOut {
+        0%   {left:0%; visibility:visible; top:0%;}
+        1%   {left:1%;}
+        2%   {left:2%;}
+        3%   {left:3%;}
+        4%   {left:4%;}
+        5%   {left:5%;}
+        6%   {left:6%;}
+        7%   {left:7%;}
+        8%   {left:8%;}
+        9%   {left:9%;}
+        10%   {left:10%;}
+        11%   {left:11%;}
+        12%   {left:12%;}
+        13%   {left:13%;}
+        14%   {left:14%;}
+        15%   {left:15%;}
+        16%   {left:16%;}
+        17%   {left:17%;}
+        18%   {left:18%;}
+        19%   {left:19%; top:10%;}
+        20%   {left:20%;}
+        21%   {left:21%;}
+        22%   {left:22%;}
+        23%   {left:23%;}
+        24%   {left:24%;}
+        25%   {left:25%;}
+        26%   {left:26%;}
+        27%   {left:27%;}
+        28%   {left:28%;}
+        29%   {left:29%;}
+        30%   {left:30%;}
+        31%   {left:31%;}
+        32%   {left:32%;}
+        33%   {left:33%;}
+        34%   {left:34%;}
+        35%   {left:35%;}
+        36%   {left:36%;}
+        37%   {left:37%;}
+        38%   {left:38%; top:0%;}
+        39%   {left:39%;}
+        40%   {left:40%;}
+        41%   {left:41%;}
+        42%   {left:42%;}
+        43%   {left:43%;}
+        44%   {left:44%;}
+        45%   {left:45%;}
+        46%   {left:46%;}
+        47%   {left:47%;}
+        48%   {left:48%;}
+        49%   {left:49%;}
+        50%   {left:50%;}
+        51%   {left:51%;}
+        52%   {left:52%;}
+        53%   {left:53%;}
+        54%   {left:54%;}
+        55%   {left:55%;}
+        56%   {left:56%;}
+        57%   {left:57%; top:10%;}
+        58%   {left:58%;}
+        59%   {left:59%;}
+        60%   {left:60%;}
+        61%   {left:61%;}
+        62%   {left:62%;}
+        63%   {left:63%;}
+        64%   {left:64%;}
+        65%   {left:65%;}
+        66%   {left:66%;}
+        67%   {left:67%;}
+        68%   {left:68%;}
+        69%   {left:69%;}
+        70%   {left:70%;}
+        71%   {left:71%;}
+        72%   {left:72%;}
+        73%   {left:73%;}
+        74%   {left:74%;}
+        75%   {left:75%;}
+        76%   {left:76%; top:10%;}
+        77%   {left:77%;visibility:hidden;}
+        78%   {left:1000%;}
+    }
+    @-webkit-keyframes moveOut {
+        0%   {left:0%; visibility:visible; top:0%;}
+        1%   {left:1%;}
+        2%   {left:2%;}
+        3%   {left:3%;}
+        4%   {left:4%;}
+        5%   {left:5%;}
+        6%   {left:6%;}
+        7%   {left:7%;}
+        8%   {left:8%;}
+        9%   {left:9%;}
+        10%   {left:10%;}
+        11%   {left:11%;}
+        12%   {left:12%;}
+        13%   {left:13%;}
+        14%   {left:14%;}
+        15%   {left:15%;}
+        16%   {left:16%;}
+        17%   {left:17%;}
+        18%   {left:18%;}
+        19%   {left:19%; top:10%;}
+        20%   {left:20%;}
+        21%   {left:21%;}
+        22%   {left:22%;}
+        23%   {left:23%;}
+        24%   {left:24%;}
+        25%   {left:25%;}
+        26%   {left:26%;}
+        27%   {left:27%;}
+        28%   {left:28%;}
+        29%   {left:29%;}
+        30%   {left:30%;}
+        31%   {left:31%;}
+        32%   {left:32%;}
+        33%   {left:33%;}
+        34%   {left:34%;}
+        35%   {left:35%;}
+        36%   {left:36%;}
+        37%   {left:37%;}
+        38%   {left:38%; top:0%;}
+        39%   {left:39%;}
+        40%   {left:40%;}
+        41%   {left:41%;}
+        42%   {left:42%;}
+        43%   {left:43%;}
+        44%   {left:44%;}
+        45%   {left:45%;}
+        46%   {left:46%;}
+        47%   {left:47%;}
+        48%   {left:48%;}
+        49%   {left:49%;}
+        50%   {left:50%;}
+        51%   {left:51%;}
+        52%   {left:52%;}
+        53%   {left:53%;}
+        54%   {left:54%;}
+        55%   {left:55%;}
+        56%   {left:56%;}
+        57%   {left:57%; top:10%;}
+        58%   {left:58%;}
+        59%   {left:59%;}
+        60%   {left:60%;}
+        61%   {left:61%;}
+        62%   {left:62%;}
+        63%   {left:63%;}
+        64%   {left:64%;}
+        65%   {left:65%;}
+        66%   {left:66%;}
+        67%   {left:67%;}
+        68%   {left:68%;}
+        69%   {left:69%;}
+        70%   {left:70%;}
+        71%   {left:71%;}
+        72%   {left:72%;}
+        73%   {left:73%;}
+        74%   {left:74%;}
+        75%  {left:75%;}
+        76% {left:76%; top:10%;}
+        77% {left:77%;}
+        100% {visibility:hidden;}
+    }
+    .moveOut {
+        position:relative;
+        -webkit-animation-name: moveOut;
+        animation-name: moveOut;
+        -webkit-transform-origin: left;
+        transform-origin: left;
+    }
+
+#
+{% extends 'login/layout.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+
+<title>Signin with {{website}}</title>
+
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'load' %}" method="post">
+    {% csrf_token %}
+    Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" placeholder="Sample@gmail.com" id="email" />
+    <br />
+    Password&nbsp; <input type="password" name="password" id="password" />
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<a href="{% url 'signup' %}" id="link">Create a new account in <img src="{% static 'app/images/website(1).png' %}" style="width:100px; height:25px; background-color:white" class="animated rubberBand infinite slow" /> </a>
+<br />
+
+{% endblock %}
+
+{% block outside %}
+
+<div id="outside" align="center" style="background-color:forestgreen;background-repeat: no-repeat; background-size: cover;">
+    <img src="{% static 'app/images/bird4.gif' %}" style="width:50%; height:100%; float:left;" />
+    <div class="imageContainer" style="width:50%; height:100%; float:right;">
+        <img src="{% static 'app/images/board1.png' %}" style="width:50%; height:100%;" />
+        <div class="centered" align="center" style="font-size:18px;">
+            <a href="#" class="navbar-brand topleft"><img src="{% static 'app/images/website(icon)(1).png' %}" class="animated flip infinite slow" style="width:20px; height:15px;" /></a>
+            <ul style="background-color:white">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    document.getElementById("outside").style.backgroundImage = "url('/static/app/images/forest3.jpg')";
+</script>
+
+<script>
+    localStorage.log = 'Login';
+    ScreenSizeFitting('window');
+    ScreenSizeFitting('outside');
+    function WindowOnResize() {
+        ScreenSizeFitting('window');
+        ScreenSizeFitting('outside');
+        document.getElementById('outside').style.height /= 2;
+    }
+    window.onresize = WindowOnResize;
+</script>
+
+{% endblock %}
+
+#
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <!-- https://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{%static 'app/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{%static 'app/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{%static 'app/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{%static 'app/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{%static 'app/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'app/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{%static 'app/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{%static 'app/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'app/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{%static 'app/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'app/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{%static 'app/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'app/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'app/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateTEXT.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateIMAGE.css' %}" />
+    <style>
+        /* Tag Name*/
+        body {
+            background-color: aliceblue;
+        }
+
+        /* Tag ID */
+        #rough {
+            font-size: 0px;
+            width: 0px;
+            height: 0px;
+        }
+
+        /* Tag Class*/
+        .rough {
+            font-size: 0px;
+            width:0px;
+            height:0px;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <!-- title -->
+    {% block title %}{% endblock %}
+</head>
+
+<body>
+    <div class="container body-content">
+        <div class="container" align="center">
+            <br />
+            <div id="window">
+                <div class="imageContainer" style="width:100%; height:100%;">
+                    <img src="{% static 'app/images/board1.png' %}" alt="board1" id="board" style="width:100%; height:100%;" />
+                    <div class="centered">
+                        <br />
+                        <h1 align="center">{{ title }}</h1>
+                        <!-- content -->
+                        {% block content %}{% endblock %}
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+            <!-- outside -->
+            <div id="outside" align="center" style="background-color:forestgreen;background-repeat: no-repeat; background-size: cover;">
+                <img src="{% static 'app/images/animal1.gif' %}" style="width:50%; height:100%; float:left;" id="animal"/>
+                <div class="imageContainer" style="width:50%; height:100%; float:right;">
+                    <img src="{% static 'app/images/stickboard1.png' %}" id="stickboard" alt="stickboard1" style="width:50%; height:100%;"/>
+                    <div class="centered" align="center" style="font-size:18px;">
+                        <a href="#" class="navbar-brand topleft"><img src="{% static 'app/images/website(icon)(1).png' %}" class="animated flip infinite slow" style="width:20px; height:15px;" /></a>
+                        <ul style="background-color:white">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                        <br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script id=" ScreenSizeFitting">
+        function ScreenSizeFitting(ScreenSizeFittingId = 'window') {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            ScreenSizeFittingElement = document.getElementById(ScreenSizeFittingId);
+            if (width > height) {
+                ScreenSizeFittingElement.style.width = (height - height / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (height - height / 5) + 'px';
+            }
+            else {
+                ScreenSizeFittingElement.style.width = (width - width / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (width - width / 10) + 'px';
+            }
+        }
+    </script>
+    <script>
+        function randint(startNumberRANDINT, endNumberRANDINT) {
+            return Math.floor((Math.random() * endNumberRANDINT) + startNumberRANDINT);
+        }
+    </script>
+    <script>
+        number =  randint(1, 3);
+        document.getElementById("outside").style.backgroundImage = "url('/static/app/images/forest" + number + ".jpg')";
+        number =  randint(1, 3);
+        animal = document.getElementById("animal");
+        animal.src = '/static/app/images/animal' + number + '.gif';
+        animal.alt = 'animal' + number;
+        number =  randint(1, 3);
+        board = document.getElementById("board");
+        board.src = '/static/app/images/board' + number + '.png';
+        board.alt = 'board' + number;
+        number =  randint(1, 3);
+        stickboard = document.getElementById("stickboard");
+        stickboard.src = '/static/app/images/stickboard' + number + '.png';
+        stickboard.alt = 'stickboard' + number;
+    </script>
+    <script>
+        localStorage.log = 'Login';
+        ScreenSizeFitting('window');
+        ScreenSizeFitting('outside');
+        function WindowOnResize() {
+            ScreenSizeFitting('window');
+            ScreenSizeFitting('outside');
+            document.getElementById('outside').style.height /= 2;
+        }
+        window.onresize = WindowOnResize;
+    </script>
+    {% block script %}{% endblock %}
+</body>
+</html>
+
+#
+array = [['1','CS','2020-07-02','21.31','GIRIJA','thursday','01.01.35','67.5MB']
+['2','CS','2020-07-07','23.07','VINOTH KUMAR SIR','tuesday','01.22.47','89.2MB']
+['3','CS','2020-07-08','21.42','VARUN KUMAR','wednesday','00.36.06','43.1MB']
+['4','CS','2020-07-12','22.59','GOBI KRISHNA','sunday','00.57.13','58.8MB']
+['5','CS','2020-07-14','23.00','VARUN KUMAR','tuesday','00.26.02','28.1MB']
+['6','CS','2020-07-14','23.42','VARUN KUMAR','tuesday','00.11.23','13.6MB']
+['7','D','2020-07-06','01.32','MURUGAVELAN','monday','00.51.07','50.5MB']
+['8','D','2020-07-08','23.02','DEEPTHI','wednesday','00.44.19','43.5MB']
+['9','D','2020-07-13','21.35','GIRIJA','monday','00.55.39','54.0MB']
+['10','EM','2020-06-23','01.33','LAKSHMI NARAYANAN','wednesday','00.40.04','39.2MB']
+['11','EM','2020-07-02','02.03','HEMANTH','thursday','00.31.58','34.9MB']
+['12','EM','2020-07-03','01.31','ASHWIN KARTHIK','friday','00.58.59','57.9MB']
+['13','EM','2020-07-07','01.33','MONISH KUMAR','tuesday','00.58.36','62.8MB']
+['14','EM','2020-07-07','21.31','DIVIYA BHAVANI','tuesday','01.07.32','69.4MB']
+['15','EM','2020-07-08','01.39','DEEBIKA','wednesday','00.56.42','61.9MB']
+['16','EM','2020-07-10','01.51','DEEBIKA','friday','00.35.46','35.1MB']
+['17','EM','2020-07-14','21.57','DEEPTHI','tuesday','00.41.41','41.6MB']
+['18','M','2020-07-02','21.31','VIJAYALAKSHMI MAM','thursday','00.54.49','51.0MB']
+['19','M','2020-07-05','21.32','SOWMYA','sunday','01.03.20','56.0MB']
+['20','M','2020-07-06','23.28','VIJAYALAKSHMI MAM','monday','00.36.37','33.9MB']
+['21','M','2020-07-12','21.39','DIVIYA BHAVAANI','sunday','00.42.39','39.0MB']
+['22','M','2020-07-13','23.02','VIJAYALAKSHMI MAM','monday','00.48.39','45.6MB']
+['23','M','2020-07-15','01.32','VIJAYALAKSHMI MAM','wednesday','00.51.03','63.3MB']]
+
+    Day = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+#
+
+            video = document.createElement('video');
+            video.style.width = '100%';
+            video.style.height = '50%';
+            video.controls = 'true';
+            source = document.createElement('source');
+            source.src = 'https://HinKam1132VideoHolder1.pythonanywhere.com/static/app/videos/(' + (i + 1) + ').mp4';
+            source.src = 'https://youtu.be/15GlxhlRyXU';
+            source.type = 'video/mp4';
+            video.appendChild(source);
+
