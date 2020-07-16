@@ -1,0 +1,192 @@
+{% extends 'login/layout.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+
+<title>Signup with {{website}}</title>
+
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'load' %}" method="post">
+    {% csrf_token %}
+    <p id="name_error">Name should have atleast two characters</p>
+    <p>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name" placeholder="Name" id="name" maxlength="15" spellcheck="false" /></p>
+    <p id="email_error"></p>
+    <p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" placeholder="Sample@gmail.com" id="email" disabled="disabled" spellcheck="false" /></p>
+    <p id="password_error"></p>
+    <p>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="password" id="password" disabled="disabled" maxlength="15" /></p>
+    <p id="award"></p>
+    <p id="confirm_error"></p>
+    <p>Confirm Password <input type="password" name="confirm" id="confirm" disabled="disabled" maxlength="15" /></p>
+    <p><input type="submit" value="Submit" id="submit" disabled="disabled" /></p>
+</form>
+<p><a href="{% url 'signin' %}">Already have an account in <img src="{% static 'app/images/website(1).png' %}" style="width:100px; height:25px; background-color:white" class="animated rubberBand infinite slow" /></a></p>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    function not(boolean) {
+        if (boolean)
+            return 0;
+        return 1;
+    }
+    function Boolean(boolean) {
+        if (boolean == 'false' || boolean == 'False' || boolean == 'FALSE' || boolean == 'F' || boolean == 'f' || boolean == '0' || boolean == 0 || boolean == false)
+            boolean = 0;
+        else
+            boolean = 1;
+        return boolean;
+    }
+    var tag = [];
+    var array = ['name', 'email', 'password', 'confirm', 'submit'];
+    var symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '{', '}', '\\', '|', ';', ':', '.', ',', '"', "'", '?', '/', '-', '+', '=', '_'];
+    var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    var len = { 'numbers': numbers.length, 'symbols': symbols.length };
+    var bools = { 'numbers': false, 'symbols': false, 'space': false, 'namespace': false };
+    var length = array.length;
+    tag['award'] = document.getElementById('award');
+    for (i = 0; i < length - 1; i++) {
+        tag[array[i]] = document.getElementById(array[i] + '_error');
+        tag[array[i]].style.color = "red";
+    }
+    function check() {
+        bools['space'] = false;
+        bools['namespace'] = false;
+        count = { 'numbers': 0, 'symbols': 0, 'capital': 0 };
+        for (i = 0; i < length; i++) {
+            tag[array[i]] = document.getElementById(array[i]);
+            if (i != length - 1) {
+                tag[array[i] + '_value'] = tag[array[i]].value;
+                tag[array[i] + '_error'] = document.getElementById(array[i] + '_error');
+            }
+        }
+        for (i = 0; i < tag['name_value'].length; i++) {
+            if (tag['name_value'][i] == ' ') {
+                bools['namespace'] = true;
+                break;
+            }
+        }
+        if (tag['name_value'].length < 2 || (bools['namespace'])) {
+            string = 'Name should have atleast two characters.';
+            if (bools['namespace'])
+                string += '  Tab Spaces are not allowed.';
+            tag['name_error'].innerHTML = string;
+            disable(1);
+        }
+        else {
+            tag['name_error'].innerHTML = ' ';
+            tag['email'].disabled = false;
+        }
+        boolean = Boolean(tag['email'].disabled);
+        if (not(boolean)) {
+            if (tag['email_value'].length <= 10) {
+                tag['email_error'].innerHTML = 'Invalid Email ID';
+                disable(2);
+            }
+            else {
+                tag['email_error'].innerHTML = ' ';
+                tag['password'].disabled = false;
+            }
+        }
+        boolean = Boolean(tag['password'].disabled);
+        if (not(boolean)) {
+            for (i = 0; i < tag['password_value'].length; i++) {
+                bools['numbers'] = false;
+                bools['symbols'] = false;
+                for (j = 0; j < len['symbols']; j++) {
+                    if (symbols[j] == tag['password_value'][i]) {
+                        count['symbols']++;
+                        bools['symbols'] = true;
+                        break;
+                    }
+                }
+                for (j = 0; j < len['numbers']; j++) {
+                    if (numbers[j] == tag['password_value'][i]) {
+                        count['numbers']++;
+                        bools['numbers'] = true
+                        break;
+                    }
+                }
+                if (tag['password_value'][i] == ' ')
+                    bools['space'] = true;
+                if (not(bools['numbers']) && not(bools['symbols']) && tag['password_value'][i] == tag['password_value'][i].toUpperCase()) {
+                    count['capital']++;
+                }
+            }
+            if (tag['password_value'].length < 7) {
+                string = 'Very Weak';
+                color = 'red';
+            }
+            else if (count['numbers'] > 2 && count['symbols'] > 1 && tag['password_value'].length >= 7 && count['capital'] >= 1) {
+                string = 'Very Strong';
+                color = 'chartreuse';
+            }
+            else if (not(tag['password_value'].length < 7 || count['numbers'] < 2 || count['symbols'] < 1 || count['capital'] < 1 || bools['space'])) {
+                string = 'Strong';
+                color = 'green';
+            }
+            else if (count['numbers'] >= 2 || count['symbols'] >= 1) {
+                string = 'Weak';
+                color = 'darksalmon';
+            }
+            else {
+                string = 'better';
+                color = 'yellow';
+            }
+            tag['award'].innerHTML = string;
+            tag['award'].style.color = color;
+            if (tag['password_value'].length < 7 || count['numbers'] < 2 || count['symbols'] < 1 || count['capital'] < 1 || bools['space']) {
+                string = 'Password should have atleast seven characters including one symbol, two numbers and one capital letter.';
+                if (bools['space'])
+                    string += ' Tab Spaces are not allowed';
+                tag['password_error'].innerHTML = string;
+                disable(3);
+            }
+            else {
+                tag['password_error'].innerHTML = ' ';
+                tag['confirm'].disabled = false;
+            }
+        }
+        boolean = Boolean(tag['confirm'].disabled);
+        if (not(boolean)) {
+            if (tag['confirm_value'] != tag['password_value']) {
+                tag['confirm_error'].innerHTML = 'Password and Confirm Password does\'nt match.';
+                disable(4);
+            }
+            else {
+                tag['confirm_error'].innerHTML = ' ';
+                tag['submit'].disabled = false;
+            }
+        }
+    }
+    function disable(startingNumber) {
+        for (i = startingNumber; i < length; i++) {
+            tag[array[i]].disabled = true;
+            tag[array[i] + '_error'].innerHTML = '';
+        }
+    }
+    var typingTimer = [];
+    var doneTypingInterval = 5000;
+    var $input = [];
+    for (i = 0; i < length - 1; i++) {
+        $input[i] = $('#' + array[i]);
+    }
+    for (i = 0; i < length - 1; i++) {
+        $input[i].on('keyup', function () {
+            clearTimeout(typingTimer[i]);
+            typingTimer[i] = setTimeout(check(), doneTypingInterval);
+        });
+        $input[i].on('keydown', function () {
+            clearTimeout(typingTimer[i]);
+        });
+    }
+</script>
+
+{% endblock %}
+
+

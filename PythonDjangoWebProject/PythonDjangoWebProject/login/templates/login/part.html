@@ -1,0 +1,45 @@
+﻿{% load staticfiles %}
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a id="hello"></a>
+    </li>
+    <li>
+        <a id="log" href="/login/" onclick="clicked()"></a>
+    </li>
+</ul>
+
+<script>
+    function not(boolean) {
+        if (boolean)
+            return 0;
+        return 1;
+    }
+    tag = document.getElementById('log');
+    if (not(localStorage.log)) {
+        localStorage.log = 'Login';
+        localStorage.name = '';
+        localStorage.email = '';
+    }
+    if (localStorage.log == 'Logout') {
+        document.getElementById('hello').innerHTML = 'Hello ' + localStorage.name + ' ! ';
+        tag.href = '';
+    }
+    else {
+        document.getElementById('hello').innerHTML = ' ';
+        tag.href = '/login/';
+        localStorage.name = '';
+        localStorage.email = '';
+    }
+    function clicked() {
+        if (localStorage.log == 'Logout') {
+            localStorage.log = 'Login';
+        }
+        else {
+            localStorage.log = 'Logout';
+            localStorage.email = '';
+            localStorage.name = '';
+        }
+    }
+    tag.innerHTML = localStorage.log;
+</script>

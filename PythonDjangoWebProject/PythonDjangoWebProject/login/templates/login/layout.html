@@ -1,0 +1,142 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <!-- https://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{%static 'app/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{%static 'app/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{%static 'app/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{%static 'app/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{%static 'app/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'app/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{%static 'app/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{%static 'app/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'app/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{%static 'app/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'app/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{%static 'app/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'app/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'app/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateTEXT.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateIMAGE.css' %}" />
+    <style>
+        /* Tag Name*/
+        body {
+            background-color: aliceblue;
+        }
+
+        /* Tag ID */
+        #rough {
+            font-size: 0px;
+            width: 0px;
+            height: 0px;
+        }
+
+        /* Tag Class*/
+        .rough {
+            font-size: 0px;
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <!-- title -->
+    {% block title %}{% endblock %}
+</head>
+
+<body>
+    <div class="container body-content">
+        <div class="container" align="center">
+            <br />
+            <div id="window">
+                <div class="imageContainer" style="width:100%; height:100%;">
+                    <img src="{% static 'app/images/board1.png' %}" alt="board1" id="board" style="width:100%; height:100%;" />
+                    <div class="centered">
+                        <br />
+                        <h1 align="center">{{ title }}</h1>
+                        <!-- content -->
+                        {% block content %}{% endblock %}
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+            <!-- outside -->
+            <div id="outside" align="center" style="background-color:forestgreen;background-repeat: no-repeat; background-size: cover;">
+                <img src="{% static 'app/images/animal1.gif' %}" style="width:50%; height:100%; float:left;" id="animal" />
+                <div class="imageContainer" style="width:50%; height:100%; float:right;">
+                    <img src="{% static 'app/images/stickboard1.png' %}" id="stickboard" alt="stickboard1" style="width:50%; height:100%;" />
+                    <div class="centered" align="center" style="font-size:18px;">
+                        <a href="#" class="navbar-brand topleft"><img src="{% static 'app/images/website(icon)(1).png' %}" class="animated flip infinite slow" style="width:20px; height:15px;" /></a>
+                        <ul style="background-color:white">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                        <br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script id=" ScreenSizeFitting">
+        function ScreenSizeFitting(ScreenSizeFittingId = 'window') {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            ScreenSizeFittingElement = document.getElementById(ScreenSizeFittingId);
+            if (width > height) {
+                ScreenSizeFittingElement.style.width = (height - height / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (height - height / 5) + 'px';
+            }
+            else {
+                ScreenSizeFittingElement.style.width = (width - width / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (width - width / 10) + 'px';
+            }
+        }
+    </script>
+    <script>
+        function randint(startNumberRANDINT, endNumberRANDINT) {
+            return Math.floor((Math.random() * endNumberRANDINT) + startNumberRANDINT);
+        }
+    </script>
+    <script>
+        number = randint(1, 3);
+        document.getElementById("outside").style.backgroundImage = "url('/static/app/images/forest" + number + ".jpg')";
+        number = randint(1, 3);
+        animal = document.getElementById("animal");
+        animal.src = '/static/app/images/animal' + number + '.gif';
+        animal.alt = 'animal' + number;
+        board = document.getElementById("board");
+        board.src = '/static/app/images/board.png';
+        board.alt = 'board';
+        number = randint(1, 3);
+        stickboard = document.getElementById("stickboard");
+        stickboard.src = '/static/app/images/stickboard' + number + '.png';
+        stickboard.alt = 'stickboard' + number;
+    </script>
+    <script>
+        localStorage.log = 'Login';
+        ScreenSizeFitting('window');
+        ScreenSizeFitting('outside');
+        function WindowOnResize() {
+            ScreenSizeFitting('window');
+            ScreenSizeFitting('outside');
+            document.getElementById('outside').style.height /= 2;
+        }
+        window.onresize = WindowOnResize;
+    </script>
+    {% block script %}{% endblock %}
+</body>
+</html>

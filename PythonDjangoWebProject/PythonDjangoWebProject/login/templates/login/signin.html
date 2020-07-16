@@ -1,0 +1,31 @@
+{% extends 'login/layout.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+
+<title>Signin with {{website}}</title>
+
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'load' %}" method="post">
+    {% csrf_token %}
+    Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" placeholder="Sample@gmail.com" id="email" />
+    <br />
+    Password&nbsp; <input type="password" name="password" id="password" />
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<a href="{% url 'signup' %}" id="link">Create a new account in <img src="{% static 'app/images/website(1).png' %}" style="width:100px; height:25px; background-color:white" class="animated rubberBand infinite slow" /> </a>
+<br />
+
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

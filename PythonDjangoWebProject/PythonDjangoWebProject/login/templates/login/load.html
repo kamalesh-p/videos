@@ -1,0 +1,80 @@
+{% extends 'login/layout.html' %}
+
+{% load staticfiles %}
+
+{% block style %}
+
+<style>
+    div {
+        word-break: break-all;
+    }
+</style>
+
+{% endblock %}
+
+{% block title %}
+
+<title>Loading {{website}}</title>
+
+{% endblock %}
+
+{% block content %}
+<img src="{% static 'app/images/website(1).png' %}"  class="rough" />
+<div id="rough">{{ title }}</div>
+<div class="name" id="rough">{{ name }}</div>
+<div class="email" id="rough">{{ email }}</div>
+<div class="container">
+    <div class="col-xs-12">
+        <form id="verify" action="{% url 'load' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="OTP" />
+            <input type="submit" value="Submit" />
+            <a href="{% url 'load' %}">Resend OTP</a>
+        </form>
+        <div id="content">{{ content }}</div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    tag = document.getElementById('rough');
+    if (tag.innerHTML != 'Verification' || tag.textContent != 'Verification') {
+        id = document.getElementById('verify');
+        id.innerHTML = '';
+        if (tag.innerHTML != 'Failure!!!' || tag.textContent != 'Failure!!!') {
+            tag = document.createElement('a');
+            tag.innerHTML = 'continue &raquo;';
+            tag.href = '/';
+            id.appendChild(tag);
+        }
+        else {
+            tag = document.createElement('a');
+            tag.innerHTML = 'Forgot Password';
+            tag.href = '/login/signup';
+            id.appendChild(tag);
+        }
+    }
+    else {
+        content = document.getElementById('content');
+        content.innerHTML = content.textContent;
+        content.innerHTML = (content.innerHTML).replace('website', '<img src="' + document.getElementsByClassName('rough')[0].src + '" style="width:100px; height:25px; background-color:white;" class="animated rubberBand infinite slow"/>');
+    }
+    tag = document.getElementById('rough');
+    if (tag.innerHTML == 'Successful!!!' || tag.textContent == 'Successful!!!') {
+        localStorage.name = document.getElementsByClassName('name')[0].innerHTML;
+        localStorage.email = document.getElementsByClassName('email')[0].innerHTML;
+        localStorage.log = 'Logout';
+    }
+    else {
+        localStorage.name = '';
+        localStorage.email = '';
+        localStorage.log = 'Login';
+    }
+    if (document.getElementById('content').textContent == "OTP does'nt match")
+        document.getElementById('verify').innerHTML = '<a href="/login/signup">Change Email Id</a>';
+</script>
+
+{% endblock %}
