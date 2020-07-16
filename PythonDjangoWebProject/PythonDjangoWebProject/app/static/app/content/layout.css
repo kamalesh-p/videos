@@ -1,0 +1,49 @@
+/* tag */
+body {
+background-color:white;
+}
+h1, h2, h3, h4, h5, h6  {
+color:lime;
+}
+footer {
+color:lime;
+}
+textarea {
+width:400px;
+height:400px;
+}
+/* class */
+.navbar {
+font-size:16px;
+}
+.navbar  {
+color:black;
+background-color:lime;
+border-color:white;
+}
+.navbar a:not(#active) {
+color:black;
+text-decoration: none;
+}
+.navbar a:not(#active):hover, .navbar a:not(#active):active  {
+color:white;
+text-decoration: none;
+}
+/* id */
+#BottomFixed {
+background-color:lime;
+}
+#rough {
+font-size:0px;
+}
+#container {
+background-color:white;
+}
+#active {
+color:black;
+background-color:white;
+}
+#active:hover, #active:active {
+color: lime;
+text-decoration: none;
+}
