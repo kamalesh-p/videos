@@ -1,0 +1,83 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+<!-- title -->
+{% block title %}
+
+<title>Contact Page</title>
+
+{% endblock %}
+
+<!-- style -->
+{% block style %}
+
+<style>
+    body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image:url('/static/app/images/sky1.jpg');
+    }    
+</style>
+
+{% endblock %}
+
+<!-- outside -->
+{% block outside %}
+
+
+
+{% endblock %}
+
+<!-- container -->
+{% block container %}
+<div align="center">
+    <div id="contactWindow" align="center">
+        <div align="center" class="animated fly infinite slower" style="width:100%; height:80%; ">
+            <img src="{% static 'app/images/bird1.gif' %}" alt="bird1" style="width:75%; height:50%;" id="bird"/>
+            <div class="imageContainer" style="width:75%; height:50%;" align="center">
+                <img src="{% static 'app/images/board.png' %}" alt="board" style="width:100%; height:100%;"/>
+                <div class="centered">
+                    Created by,
+                    <address>
+                        Kamalesh Padmanabhan<br />
+                        College: SVCE<br />
+                        Branch: EEE<br /> 
+                        Email:
+                        <a href="#">hinkam1132@gmail.com</a>
+                    </address>
+                    <p style="color:red">Note: user SVCE college email id to contact.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+
+<script>
+    document.getElementById('contact').id = "active";
+</script>
+<script id="ScreenSizeFitting">
+    ScreenSizeFitting('contactWindow');
+    function WindowOnResize() {
+        ScreenSizeFitting('contactWindow');
+    }
+    window.onresize = WindowOnResize;
+</script>
+<script>
+    number = randint(1, 3);
+    bird = document.getElementById('bird');
+    bird.alt = 'bird' + number;
+    bird.src = "/static/app/images/bird" + number + ".gif";
+</script>
+<script>
+    body = document.getElementsByTagName('body')[0];
+    number = randint(1, 3);
+    body.style.backgroundImage = "url('/static/app/images/sky" + number + ".gif')";
+</script>
+
+{% endblock %}

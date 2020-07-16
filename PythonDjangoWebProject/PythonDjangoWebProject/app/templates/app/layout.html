@@ -1,0 +1,187 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <!-- https://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{%static 'app/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{%static 'app/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{%static 'app/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{%static 'app/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{%static 'app/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{%static 'app/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{%static 'app/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{%static 'app/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%static 'app/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{%static 'app/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%static 'app/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{%static 'app/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'app/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{%static 'app/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/layout.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animate.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateTEXT.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/animateIMAGE.css' %}"/>
+    <style id="code rough">
+        .code {
+            background-color: #f5f5f5;
+            color: black;
+            border: 2px solid grey;
+        }
+        .rough {
+            width:0px;
+            height:0px;
+            visibility:hidden;
+        }
+    </style>
+    <style id="message">
+        /* class */
+        .red {
+            color: darkred;
+            background-color: darksalmon;
+            border: 2px solid darkred;
+        }
+        .green {
+            color: green;
+            background-color: lightgreen;
+            border: 2px solid green;
+        }
+        .blue {
+            color: blue;
+            background-color: lightblue;
+            border: 2px solid blue;
+        }
+        .white {
+            color: burlywood;
+            background-color: antiquewhite;
+            border: 2px solid burlywood;
+        }
+        .yellow {
+            color: darkgoldenrod;
+            background-color: yellow;
+            border: 2px solid darkgoldenrod;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <!-- script -->
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    <!-- title -->
+    {% block title %}{% endblock %}
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand topleft"><img src="{% static 'app/images/website(icon)(1).png' %}" class="animated flip infinite slow" style="width:20px; height:15px;"/></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}" id="home">Home</a></li>
+                    <li><a href="{% url 'about' %}" id="about">About</a></li>
+                    <li><a href="{% url 'contact' %}" id="contact">Contact</a></li>
+                </ul>
+                {% include 'login/part.html'%}
+            </div>
+        </div>
+    </div>
+    <!-- outside -->
+{% block outside %}{% endblock %}
+    <div class="container body-content">
+        <h2 align="center"> {{ title }} </h2>
+        <!-- container -->
+{% block container %}{% endblock %}
+        <hr/>
+        <footer>
+            <p style="font-size:18px">&copy; 2020 - <img src="{% static 'app/images/website(1).png' %}" style="width:100px; height:35px;" class="animated rubberBand infinite slow"/> Web Application</p>
+        </footer>
+    </div>
+    <div class="navbar-fixed-bottom">
+        <div id="BottomMessage">
+
+        </div>
+        <div id="BottomFixed">
+
+        </div>
+    </div>
+    <!-- script -->
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+    <script id="randint not">
+        function randint(startNumberRANDINT, endNumberRANDINT) {
+            return Math.floor((Math.random() * endNumberRANDINT) + startNumberRANDINT);
+        }
+        function not(boolean) {
+            if (boolean)
+                return 0;
+            return 1;
+        }
+    </script>
+    <script id="link message ScreenSize ScreenSizeFitting ScreenSizeFittingClass">
+        function link(links = 'https://www.example.com', text = links, type = 'innerHTML') {
+            text = '<a href="' + links + '">' + text + '</a>';
+            if (type == 'innerHTML')
+                return text;
+            return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        function message(text, classname = 'blue') {
+            document.getElementById('BottomMessage').innerHTML += '<div class="alert-info alert-dismissable ' + classname + '" style="font-size:20px;">' + text + '<a class="close" data-dismiss="alert" href="#"><strong style="font-size:18px;">X</strong></a></div>';
+        }
+        var ScreenSizeAlign = 'left';
+        function ScreenSize() {
+            /*
+            var ScreenSizeId = 'id';
+            ScreenSize();
+            window.onresize = ScreenSize;
+            */
+            width = window.innerWidth;
+            height = window.innerHeight;
+            ScreenSizeElement = document.getElementById(ScreenSizeId);
+            ScreenSizeElement.innerHTML = '<strong align="' + ScreenSizeAlign + '">width=' + width + 'px X height=' + height + 'px</div>';
+        }
+        function ScreenSizeFitting(ScreenSizeFittingId = 'ErrorAnimation', number = 0) {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            if (not(number))
+                ScreenSizeFittingElement = document.getElementById(ScreenSizeFittingId);
+            else
+                ScreenSizeFittingElement = ScreenSizeFittingId;
+            if (width > height) {
+                ScreenSizeFittingElement.style.width = (height - height / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (height - height / 5) + 'px';
+            }
+            else {
+                ScreenSizeFittingElement.style.width = (width - width / 10) + 'px';
+                ScreenSizeFittingElement.style.height = (width - width / 10) + 'px';
+            }
+        }
+        function ScreenSizeFittingClass(classname, changeWidthSize = 0, changeHeightSize = 0) {
+            classname = document.getElementsByClassName(classname);
+            for (classloopi = 0; classloopi < classname.length; classloopi++) {
+                ScreenSizeFitting(classname[classloopi], 1);
+                if (changeWidthSize)
+                    classname[classloopi].style.width = '100%';
+                if (changeHeightSize)
+                    classname[classloopi].style.height = (Math.floor((classname[classloopi].style.height).replace('px', '')) * changeHeightSize) + 'px';
+            }
+        }
+    </script>
+{% block script %}{% endblock %}
+
+</body>
+</html>

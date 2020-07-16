@@ -1,0 +1,117 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+<!-- title -->
+{% block title %}
+
+<title>About Page</title>
+
+{% endblock %}
+
+<!-- style -->
+{% block style %}
+
+<style>
+    
+</style>
+
+{% endblock %}
+
+<!-- outside -->
+{% block outside %}
+
+
+
+{% endblock %}
+
+<!-- container -->
+{% block container %}
+
+<div id="GoogleMeetingVideo">
+
+</div>
+
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+<script>
+    document.getElementById('about').id = "active";
+</script>
+<script>
+    Day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    Month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    function GMTtoIST(date, day, month, hour, minute, second = '00', year = '2020') {
+        date = Math.floor(date);
+        day = Math.floor(day);
+        month = Math.floor(month);
+        GMT = Month[month] + " " + date + " " + year + " " + hour + ":" + minute + ":" + second + " GMT";
+        IST = new Date(GMT);
+        GMT = Day[day] + ', ' + date + '/' + month + '/' + year + ' ' + hour + ":" + minute + " GMT";
+        if (Math.floor(IST.getDate()) == Math.floor(date) + 1 || Math.floor(IST.getDate()) < Math.floor(date))
+           day += 1;
+        if (day >= 7)
+            day = 0;
+        if (Math.floor(IST.getHours()) > 9 && Math.floor(IST.getHours()) <= 11)
+            Period = 'I';
+        else if(Math.floor(IST.getHours()) > 11 && Math.floor(IST.getHours()) <= 13)
+            Period = 'II';
+        else
+            Period = 'III';
+        IST = Day[day] + ', ' + IST.getDate() + '/' + IST.getMonth() + '/' + year + ' ' + IST.getHours() + ':' + IST.getMinutes() + " IST";
+        return [GMT, IST, Period];
+    }
+</script>
+<div id="ScriptDelete">
+    <script>
+        // number subject date time name day videoTime size
+        videoLink = ['vhl_vkhz2fs','Y3ebR8F6Pog','CYNA-YWCx4k','rvSVD_-X2Cc','zmkEljJvwGA','JBLgXaSv-iI','J8r9o-yQlyw','-_luZWIcmis','iZZmg3IKUVw','c1F49uft8kE','1Dkyd9v88Lw','MIsefXWYOm0','OAUjMB-I14M','ysDJzZ7oUTU','EvV1st8ZrUU','BRPPQt5DmPI','XBe9occhN5E','ykH7vwCGElA','yJdhm_S60Zw','yFTgNhRrShM','khtuxYFRI2s','ahGTh-O757g','ATEOiSIh42g']
+        videoList = [['1', 'Control System', ['2020', '07', '02'], ['21', '31'], 'GIRIJA', 3, '01.01.35', '67.5MB'],
+        ['2', 'Control System', ['2020', '07', '07'], ['23', '07'], 'VINOTH KUMAR SIR', 1, '01.22.47', '89.2MB'],
+        ['3', 'Control System', ['2020', '07', '08'], ['21', '42'], 'VARUN KUMAR', 2, '00.36.06', '43.1MB'],
+        ['4', 'Control System', ['2020', '07', '12'], ['22', '59'], 'GOBI KRISHNA', 6, '00.57.13', '58.8MB'],
+        ['5', 'Control System', ['2020', '07', '14'], ['23', '00'], 'VARUN KUMAR', 1, '00.26.02', '28.1MB'],
+        ['6', 'Control System', ['2020', '07', '14'], ['23', '42'], 'VARUN KUMAR', 1, '00.11.23', '13.6MB'],
+        ['7', 'Electron Devices and Circuits', ['2020', '07', '06'], ['01', '32'], 'MURUGAVELAN', 0, '00.51.07', '50.5MB'],
+        ['8', 'Electron Devices and Circuits', ['2020', '07', '08'], ['23', '02'], 'DEEPTHI', 2, '00.44.19', '43.5MB'],
+        ['9', 'Electron Devices and Circuits', ['2020', '07', '13'], ['21', '35'], 'GIRIJA', 0, '00.55.39', '54.0MB'],
+        ['10', 'Electromagnetic Theory', ['2020', '06', '23'], ['01', '33'], 'LAKSHMI NARAYANAN', 2, '00.40.04', '39.2MB'],
+        ['11', 'Electromagnetic Theory', ['2020', '07', '02'], ['02', '03'], 'HEMANTH', 3, '00.31.58', '34.9MB'],
+        ['12', 'Electromagnetic Theory', ['2020', '07', '03'], ['01', '31'], 'ASHWIN KARTHIK', 4, '00.58.59', '57.9MB'],
+        ['13', 'Electromagnetic Theory', ['2020', '07', '07'], ['01', '33'], 'MONISH KUMAR', 1, '00.58.36', '62.8MB'],
+        ['14', 'Electromagnetic Theory', ['2020', '07', '07'], ['21', '31'], 'DIVIYA BHAVANI', 1, '01.07.32', '69.4MB'],
+        ['15', 'Electromagnetic Theory', ['2020', '07', '08'], ['01', '39'], 'DEEBIKA', 2, '00.56.42', '61.9MB'],
+        ['16', 'Electromagnetic Theory', ['2020', '07', '10'], ['01', '51'], 'DEEBIKA', 4, '00.35.46', '35.1MB'],
+        ['17', 'Electromagnetic Theory', ['2020', '07', '14'], ['21', '57'], 'DEEPTHI', 1, '00.41.41', '41.6MB'],
+        ['18', 'Engineering Mathematics - III', ['2020', '07', '02'], ['21', '31'], 'VIJAYALAKSHMI MAM', 3, '00.54.49', '51.0MB'],
+        ['19', 'Engineering Mathematics - III', ['2020', '07', '05'], ['21', '32'], 'SOWMYA', 6, '01.03.20', '56.0MB'],
+        ['20', 'Engineering Mathematics - III', ['2020', '07', '06'], ['23', '28'], 'VIJAYALAKSHMI MAM', 0, '00.36.37', '33.9MB'],
+        ['21', 'Engineering Mathematics - III', ['2020', '07', '12'], ['21', '39'], 'DIVIYA BHAVAANI', 6, '00.42.39', '39.0MB'],
+        ['22', 'Engineering Mathematics - III', ['2020', '07', '13'], ['23', '02'], 'VIJAYALAKSHMI MAM', 0, '00.48.39', '45.6MB'],
+        ['23', 'Engineering Mathematics - III', ['2020', '07', '15'], ['01', '32'], 'VIJAYALAKSHMI MAM', 2, '00.51.03', '63.3MB'],];
+        GoogleMeetingVideo = document.getElementById('GoogleMeetingVideo');
+        for (i = 0; i < videoList.length; i++) {
+            div = document.createElement('div');
+            div2 = document.createElement('div');
+            div3 = document.createElement('div');
+            time = GMTtoIST(videoList[i][2][2], videoList[i][5], videoList[i][2][1], videoList[i][3][0], videoList[i][3][1])
+            // number subject date time name day videoTime size
+            div2.innerHTML = '<br/><div><b>(' + videoList[i][0] + ') </b><h4>Subject: ' + videoList[i][1] + '</h4></div><p>Recorded By: ' + videoList[i][4] + '</p><p>Video Length: ' + videoList[i][6] + '</p><p>Video Original Size: ' + videoList[i][7] + '</p><p>Video Compressed Size: ' + Math.floor(videoList[i][7].replace('MB', '') / 2) + 'MB</p><p>' + time[1] + '</p><p>' + time[0] + '-6</p><p>Period: ' + time[2] + '-period</p>';
+            div3.className = 'videoWindow';
+            div.appendChild(div2);
+            div3.innerHTML += '<iframe style="width:100%; height:100%;" src="https://www.youtube.com/embed/' + videoLink[i] + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+            div.appendChild(div3);
+            GoogleMeetingVideo.appendChild(div);
+        }
+    </script>
+</div>
+<script id="ScreenSizeFitting">
+    ScreenSizeFittingClass('videoWindow', 1, 0);
+    function WindowOnResize() {
+        ScreenSizeFittingClass('videoWindow', 1, 0);
+    }
+    window.onresize = WindowOnResize;
+</script>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+<!-- title -->
+{% block title %}
+
+<title>{{ title }}</title>
+
+{% endblock %}
+
+<!-- style -->
+{% block style %}
+
+<style>
+    #ErrorAnimation {
+        background-color: lightskyblue;
+    }
+</style>
+<style id="AnimationCSS">
+    
+
+</style>
+<style id="TextOverImage">
+    /* Container holding the image and the text */
+    
+</style>
+
+{% endblock %}
+
+<!-- outside -->
+{% block outside %}
+
+
+
+{% endblock %}
+
+<!-- container -->
+{% block container %}
+<div class="col-xs-12" align="center">
+    <div id="ErrorAnimation" align="center" style="background-color:forestgreen;background-repeat: no-repeat; background-size: cover;">
+        <img src="{% static 'app/images/animal1.gif' %}" style="width:50%; height:100%; float:left;" id="animal"/>
+        <div class="imageContainer" style="width:50%; height:100%; float:right;">
+            <img src="{% static 'app/images/stickboard1.png' %}" style="width:50%; height:100%;" id="board"/>
+            <div class="centered" align="center" style="font-size:18px;">
+                <a href="#" class="navbar-brand topleft"><img src="{% static 'app/images/website(icon)(1).png' %}" class="animated flip infinite slow" style="width:20px; height:15px;" /></a>
+                <ul style="background-color:white">
+                    <li>{{ title }}</li>
+                    <li>{{ content }}</li>
+                </ul>
+                <br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+<!-- script -->
+{% block script %}
+
+<script>    
+    number =  randint(1, 3);
+    document.getElementById("ErrorAnimation").style.backgroundImage = "url('/static/app/images/forest" + number + ".jpg')";
+    number =  randint(1, 3);
+    animal = document.getElementById("animal");
+    animal.src = '/static/app/images/animal' + number + '.gif';
+    animal.alt = 'animal' + number;
+    number =  randint(1, 3);
+    board = document.getElementById("board");
+    board.src = '/static/app/images/stickboard' + number + '.png';
+    board.alt = 'board' + number;
+</script>
+<script>
+    document.getElementById('error').id = "active";
+</script>
+<script>
+    document.getElementsByTagName('h2')[0].innerHTML = '';
+</script>
+<script id="ScreenSizeFitting">
+    ScreenSizeFitting();
+    function WindowOnResize() {
+        ScreenSizeFitting();
+        document.getElementById("ErrorAnimation").style.height /= 2;
+    }
+    window.onresize = WindowOnResize;
+</script>
+
+{% endblock %}
